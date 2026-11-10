@@ -1,0 +1,11 @@
+{
+ "category": "food",
+ "end_date": "Nov 23, 2026",
+ "has_address": true,
+ "has_hours": true,
+ "near_philly": true,
+ "pull_date": "Nov 9, 2026",
+ "sample_link": "https://meetingvinny-cmd.github.io/shop-previews/mayfair-diner-19136-seg/",
+ "shop": "Mayfair Diner",
+ "shop_id": "mayfair-diner-19136-seg"
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; script-src 'sha256-Ga/6NgXN6le/4S3lie5cTOXyG6JVPFFiLTrAKpxcHg0='; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"><meta name="referrer" content="no-referrer"><title>Thanks</title><link rel="icon" href="data:,"><style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#FFFFFF;color:#1E2227;font:400 17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+a{color:inherit;text-underline-offset:3px}a:focus-visible{outline:3px solid #1F4E79;outline-offset:2px}
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+header{padding:40px 0 8px}
+h1{font-size:clamp(30px,8vw,44px);line-height:1.1;letter-spacing:-0.02em;margin:0 0 14px;font-weight:800;overflow-wrap:anywhere}
+h2{font-size:26px;line-height:1.15;margin:0 0 14px;font-weight:800;letter-spacing:-0.01em}
+h3{font-size:18px;margin:22px 0 6px}
+section{padding:28px 0}
+p,li{margin:0 0 10px}
+ol,ul{padding-left:22px;margin:0 0 10px}
+.big{font-size:20px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;padding:12px 20px;margin:0 0 12px;
+ border-radius:8px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;width:100%;max-width:440px}
+.a{background:#1F4E79;color:#FFFFFF}.b{background:#F1F2F4;color:#1E2227}.c{background:#F1F2F4;color:#1E2227}
+.box{background:#F1F2F4;padding:18px 20px;border-radius:8px;margin:0 0 16px}
+.note{color:#4F5662;font-size:15px}
+footer{background:#F1F2F4;margin-top:28px;padding:32px 0;font-size:14px;color:#4F5662}
+footer p{margin:0 0 8px}
+[hidden]{display:none!important}
+</style></head><body data-to="vinny@meetingvinny.com"><main class="wrap">
+<header><h1>Thanks. Did your email send?</h1>
+<p>Your claim only reaches me once you press send in your email app. If the email didn't open, write to vinny@meetingvinny.com with the subject CLAIM <span data-slot="shop_id">your shop id</span>: <span data-slot="shop">your shop</span>.</p></header>
+<section><h2>What happens in the next 24 hours</h2><ol>
+<li>I read your email.</li>
+<li>I write back with 3 short questions. They cover what you want changed, whether you have a web address yet, and which photos you'd like.</li>
+<li>The sample stays up, hidden from search, until <span data-slot="end_date">the end date shown on it</span>. If we need more time, I'll email you the new link for the next version.</li></ol></section>
+<section><h2>5 short answers</h2>
+<h3>How do the 2 rounds of changes work?</h3>
+<p>A round is one list of changes you send at once. You send your list, I make the changes, and you look again. Then you get one more round.</p>
+<h3>Who owns the web address and the logins?</h3>
+<p>You do. The address is bought in your name and the hosting account is in your name. I never hold your passwords. You add me as a helper, and you can remove me any time.</p>
+<h3>How do I send photos?</h3>
+<p>Reply to my email and attach them. Send up to 10 photos that you took or own.</p>
+<h3>What's the care plan?</h3>
+<p>It's a small monthly plan for updates like new hours, prices or menu items. It's optional. You'll hear about it only after you've said yes to the site, and you keep the site either way.</p>
+<h3>How and when do I pay the first half?</h3>
+<p>Not today. Once we've agreed on the changes and a go-live date, I email you a pay link for the first half. The amount is the one in my first message. Pay links only ever come from vinny@meetingvinny.com.</p></section>
+<section><h2>Changed your mind?</h2>
+<p>Email vinny@meetingvinny.com with the subject TAKE DOWN <span data-slot="shop_id">your shop id</span>: <span data-slot="shop">your shop</span>. The page comes down the same day and you won't hear from me again.</p></section>
+</main>
+<footer><div class="wrap"><p>Vinny L, LY Ecom Freedom LLC, 7244 Castor Ave STE 75, Philadelphia PA 19149-1109</p></div></footer><script>(function(){
+var q=new URLSearchParams(location.search),id=q.get('shop')||'',no=q.get('no')==='1';
+if(!/^[a-z0-9][a-z0-9-]{2,79}$/.test(id))return;
+function all(s){return Array.prototype.slice.call(document.querySelectorAll(s));}
+function put(k,v){all('[data-slot="'+k+'"]').forEach(function(n){n.textContent=v;});}
+function mt(to,s,b){return 'mailto:'+to+'?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(b);}
+if(no)all('[data-no]').forEach(function(n){n.hidden=false;});
+fetch('../'+id+'/claim.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(d){
+ if(!d||d.shop_id!==id)return;
+ var to=document.body.getAttribute('data-to');
+ put('shop',d.shop);put('shop_id',d.shop_id);put('end_date',d.end_date);put('pull_date',d.pull_date);
+ put('sample_link',d.sample_link);
+ all('[data-href="sample"]').forEach(function(n){n.href=d.sample_link;n.hidden=false;});
+ all('[data-when]').forEach(function(n){if(d[n.getAttribute('data-when')])n.hidden=false;});
+ all('[data-unless]').forEach(function(n){if(d[n.getAttribute('data-unless')])n.hidden=true;});
+ if(d.category==='food'||d.category==='bakery_deli')all('[data-food]').forEach(function(n){n.hidden=false;});
+ if(d.fact_sentence)put('fact_sentence',d.fact_sentence);
+ if(d.psi_new){put('psi_new',d.psi_new);put('new_test_date',d.new_test_date||'');
+  if(d.psi_mobile){put('psi_mobile',d.psi_mobile);put('test_date',d.test_date||'');all('[data-psi="old"]').forEach(function(n){n.hidden=false;});}
+  else all('[data-psi="none"]').forEach(function(n){n.hidden=false;});}
+ var a=document.getElementById('btn-claim');
+ if(a){a.href=mt(to,'CLAIM '+d.shop_id+': '+d.shop,'Hi Vinny,\n\nI want the website you built for '+d.shop+' (shop id '+d.shop_id+').\nI am the owner or the person who decides on the website.\n\nMy name:\nBest email for you to reach me:\n\nSend me the next steps.\n');
+  a.addEventListener('click',function(){setTimeout(function(){location.href='../thanks/?shop='+encodeURIComponent(d.shop_id);},1200);});}
+ var f=document.getElementById('btn-fwd');
+ if(f)f.href=mt('','A new website for '+d.shop,'Someone built a sample website for '+d.shop+'. Take a look:\n'+d.sample_link+'\nIt comes down on '+d.end_date+' unless you claim it.\n');
+ all('.btn-down').forEach(function(c){c.href=mt(to,'TAKE DOWN '+d.shop_id+': '+d.shop,'No thanks. Please take the sample for '+d.shop+" down and don't write again.\n");});
+ var t=document.getElementById('thanks-link');if(t)t.href='../thanks/?shop='+encodeURIComponent(d.shop_id);
+}).catch(function(){});
+var b=document.getElementById('btn-other');
+if(b)b.addEventListener('click',function(ev){ev.preventDefault();document.getElementById('other').hidden=false;});
+})();</script></body></html>
